@@ -27,7 +27,7 @@ const Title = styled.span`
   margin: auto;
 `;
 
-const Movie = ({ id, title, rating, poster }) => (
+const Movie = ({ id, title, rating, poster }) =>(
   <Link to={`/details/${id}`}>
     <Card background={poster}>
       <Title>
@@ -35,6 +35,7 @@ const Movie = ({ id, title, rating, poster }) => (
       </Title>
     </Card>
   </Link>
+  
 );
 
 Movie.propTypes = {

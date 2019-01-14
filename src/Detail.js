@@ -38,40 +38,40 @@ const MovieContainer = styled.div`
 `;
 
 const Detail = ({
-    match: {
-        params: { movieId }
-    }
+  match: {
+    params: { movieId }
+  }
 }) => (
-        <Query query={MOVIE_DETAILS} variables={{ movieId }}>
-            {({ loading, error, data }) => {
-                if (loading) return "loading";
-                if (error) return "error";
-                return (
-                    <React.Fragment>
-                        <Container>
-                            <Image src={data.movie.medium_cover_image} />
-                            <span>
-                                <Title>{data.movie.title}</Title>
-                                <Paragraph bold>Rating: {data.movie.rating}</Paragraph>
-                                <Paragraph>{data.movie.description_intro}</Paragraph>
-                            </span>
-                        </Container>
-                        <Title>Suggested</Title>
-                        <MovieContainer>
-                            {data.suggestions.map(movie => (
-                                <Movie
-                                    key={movie.id}
-                                    id={movie.id}
-                                    title={movie.title}
-                                    rating={movie.rating}
-                                    poster={movie.medium_cover_image}
-                                />
-                            ))}
-                        </MovieContainer>
-                    </React.Fragment>
-                );
-            }}
-        </Query>
-    );
+  <Query query={MOVIE_DETAILS} variables={{ movieId: parseInt(movieId) }}>
+    {({ loading, error, data }) => {
+      if (loading) return "loading";
+      if (error) return "error";
+      return (
+        <React.Fragment>
+          <Container>
+            <Image src={data.movie.medium_cover_image} />
+            <span>
+              <Title>{data.movie.title}</Title>
+              <Paragraph bold>Rating: {data.movie.rating}</Paragraph>
+              <Paragraph>{data.movie.description_intro}</Paragraph>
+            </span>
+          </Container>
+          <Title>Suggested</Title>
+          <MovieContainer>
+            {data.suggestions.map(movie => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                rating={movie.rating}
+                poster={movie.medium_cover_image}
+              />
+            ))}
+          </MovieContainer>
+        </React.Fragment>
+      );
+    }}
+  </Query>
+);
 
 export default Detail;
