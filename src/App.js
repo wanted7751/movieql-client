@@ -4,7 +4,7 @@ import { ApolloProvider } from "react-apollo";
 import client from "./apolloClient";
 import Home from "./Home";
 import Detail from "./Detail";
-
+//
 class App extends Component {
   render() {
     return (
