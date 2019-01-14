@@ -28,20 +28,20 @@ const Title = styled.span`
 `;
 
 const Movie = ({ id, title, rating, poster }) => (
-    <Link to={`/details/${id}/`}>
-        <Card background={poster}>
-            <Title>
-                {title} / {rating}⭐️
+  <Link to={`/details/${id}`}>
+    <Card background={poster}>
+      <Title>
+        {title} / {rating}⭐️
       </Title>
-        </Card>
-    </Link>
+    </Card>
+  </Link>
 );
 
 Movie.propTypes = {
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    poster: PropTypes.string.isRequired
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  poster: PropTypes.string.isRequired
 };
 
 export default Movie;

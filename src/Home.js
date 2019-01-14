@@ -27,6 +27,7 @@ const Home = () => (
           />
         ));
       }}
+      
     </Query>
   </Container>
 );
